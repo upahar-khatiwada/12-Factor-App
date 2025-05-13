@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Function to connect to the database
 def get_db_connection():
     return connection.connect(
         host=os.getenv("DB_HOST"),
@@ -15,6 +16,7 @@ def get_db_connection():
         use_pure=True
     )
 
+# Function to import the dataframe from the database
 def fetch_dataframe(query: str) -> pd.DataFrame:
     try:
         mydb = get_db_connection()

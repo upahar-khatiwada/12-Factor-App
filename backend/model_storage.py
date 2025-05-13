@@ -1,14 +1,15 @@
 from db import get_db_connection
 
-def create_storage_table():
+# Function to create a table to store the model
+def create_storage_table_pipeline():
     sql = get_db_connection()
 
     cursor = sql.cursor()
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS model_store (
+    CREATE TABLE IF NOT EXISTS model_store_pipeline (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
+        model_pipeline VARCHAR(100),
         model_blob LONGBLOB
     )
     """)
@@ -16,3 +17,7 @@ def create_storage_table():
     sql.commit()
     cursor.close()
     sql.close()
+
+# model_store_pipeline = TABLE
+# model_blob = COLUMN containing the model
+# model_pipeline = COLUMN also the name of the model
