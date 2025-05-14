@@ -2,6 +2,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 from import_model import get_model
+import uvicorn
+import os
+from dotenv import load_dotenv
+from logging_setup import setup_logger
+
+logger = setup_logger(__name__)
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -28,6 +36,26 @@ async def read_root():
 
 @app.post("/predict")
 async def root(input_data: Parameters):
+    logger.info(f"Received input: {input_data}")
+
     df_input = pd.DataFrame([input_data.model_dump()])
-    prediction_result = model.predict(df_input)
-    return {"result" : float(prediction_result[0])}
+
+    try:
+        prediction_result = model.predict(df_input)
+        prediction_value = float(prediction_result[0])
+        logger.info(f"Predicted value: {prediction_value}")
+        return {"result" : prediction_value}
+    except Exception as e:
+        logger.error(f"Error occured while predicting : {e}")
+        return {"error": "Prediction failed"}
+
+
+if __name__ == "__main__":
+    # FOR LOGS
+    logger.info("Logger set up done at api_creation.py")
+
+    # IMPORTING VALUES FROM .ENV
+    host = os.getenv("HOST")
+    port = int(os.getenv("PORT"))
+
+    uvicorn.run("api_creation:app", host=host, port=port, reload=True)
