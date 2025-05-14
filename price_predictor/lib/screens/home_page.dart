@@ -378,8 +378,10 @@ class Home extends StatelessWidget {
 
                 Text(
                   "The parameter to predict:",
-                  style: TextStyle(color: Colors.black, fontSize: 40),
+                  style: TextStyle(color: Colors.black, fontSize: 25),
                 ),
+
+                SizedBox(height: 10),
 
                 // 14
                 Align(
@@ -404,48 +406,23 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                SizedBox(height: 20),
+
+                // Button
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/input');
+                    },
+                    label: Text("Proceed"),
+                    icon: Icon(Icons.arrow_circle_right_sharp),
+                  ),
+                ),
               ],
             ),
           ),
-          // child: Column(
-          //   children: [
-          //     SizedBox(height: 10),
-          //     // Center(
-          //     //   child: Text(
-          //     //     "This is a DEMO APPLICATION for 12 factor app!",
-          //     //     style: TextStyle(fontSize: 20),
-          //     //   ),
-          //     // ),
-          //     Center(
-          //       child: Text(
-          //         "The prediction depends upon the following 13 parameters: ",
-          //         style: TextStyle(fontSize: 20),
-          //       ),
-          //     ),
-          //     SizedBox(height: 10),
-          //     Align(
-          //       alignment: Alignment.centerLeft,
-          //       child: RichText(
-          //         text: TextSpan(
-          //           children: <TextSpan>[
-          //             TextSpan(
-          //               text: " 1) CRIM",
-          //               style: TextStyle(
-          //                 color: Colors.red,
-          //                 fontSize: 20,
-          //                 fontWeight: FontWeight.bold,
-          //               ),
-          //             ),
-          //             TextSpan(
-          //               text: ": per capita crime rate by town",
-          //               style: TextStyle(color: Colors.black, fontSize: 20),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ),
       ),
     );
