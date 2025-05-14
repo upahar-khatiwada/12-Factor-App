@@ -20,7 +20,7 @@ class Parameters(BaseModel):
     B: float
     LSTAT: float
 
-model = get_model()
+model = get_model() 
 
 @app.get("/")
 async def read_root():
