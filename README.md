@@ -37,8 +37,8 @@ This project is a demo implementation of [12-Factor App](https://12factor.net/).
 ### 1. Clone the repository and create a python virtual environment.
 
 ```bash
-git clone https://github.com/yourusername/12factorapp.git
-cd 12factorapp
+git clone https://github.com/upahar-khatiwada/12-Factor-App.git
+cd 12-Factor-App
 
 python -m venv env
 env/scripts/activate
