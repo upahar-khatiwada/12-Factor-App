@@ -30,6 +30,9 @@ class Parameters(BaseModel):
 
 model = get_model() 
 
+if model is None:
+    logger.error("Model is not loaded in api_creation.py")
+
 @app.get("/")
 async def read_root():
     return {"message": "House Price Estimator API is running!"}
