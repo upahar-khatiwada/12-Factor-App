@@ -48,7 +48,8 @@ from logging_setup import setup_logger
 logger = setup_logger(__name__)
 logger.info("Logger setup done at import_model.py")
 
-model = None  # Define at module level to avoid NameError
+# Error handling
+model = None
 
 try:
     sql = get_db_connection()
@@ -74,7 +75,7 @@ try:
 
 except Exception as e:
     logger.error(f"Error occurred at import_model.py: {e}")
-    model = None  # Explicitly set to None if failure occurs
+    model = None
 
 def get_model():
     return model
