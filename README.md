@@ -30,7 +30,7 @@ This project is a demo implementation of [12-Factor App](https://12factor.net/).
 ---
 
 ## Video Demo:
-[https://youtu.be/0G5bx9xRSkg](https://youtu.be/0G5bx9xRSkg)
+https://youtu.be/ZXhfa5UX73c
 
 ## Installation & Usage
 
